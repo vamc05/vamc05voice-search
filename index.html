@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Xfinity.com Search</title>
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <!-- config -->
+        <!-- initializers:scripts -->
+        <!-- initializers:styles -->
+        <!-- galacticHeader -->
+        <script src="js/base.js?ts={{timestamp}}"></script>
+        <link href="css/base.css?ts={{timestamp}}" rel="stylesheet">
+        <script src="//assets.adobedtm.com/43896e740dcedef854392e0be6ea80deb8eb2ba5/satelliteLib-92c952fd09bad012062a2b018524f558156dd758{{dtmEnv}}.js"></script>
+        <script>
+            var CIM = CIM || {};
+            CIM.properties = {
+                environment: environmentConfig.env
+            };
+            if (/xfinity\.com$/.test(location.host)) {
+                document.domain = "xfinity.com";
+            }
+        </script>
+    </head>
+    <body class="search cat-web">
+        <div class="voicepopover" id="voicepop">
+            <div id="info">Speech</div>
+            <div class="voice">
+                <svg xmlns="http://www.w3.org/2000/svg" class="pulse" viewBox="0 0 50 50" role="presentation" focusable="false">
+                    <circle cx="25" cy="25" class="micCircle"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 28 40" role="presentation" focusable="false">
+                    <path stroke="#0272B6" fill="#0272B6" d="M8 6 A6 6,0,1,1,20 6 L 20 21 A6 6,0,1,1, 8 21 Z"/>
+                    <path stroke="#0272B6" stroke-width="4" fill="none" d="M2,20 A 12 12,0,0,0,26 20"/>
+                    <line stroke="#0272B6" stroke-width="4" x1="14" y1="34" x2="14" y2="40"/>
+                </svg>
+            </div>
+             <span id="voiceLogo">Xfinity</span>
+              <div id="close" class="b-close">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="close" viewBox="0 0 10 10" role="presentation" focusable="false">
+                   <path d="M1,1L9 9M1,9L9 1"/>
+                 </svg>
+               </div>
+             </div>
+        <form id="search_form" class="search-form">
+            <div class="search-box main focus" data-module="search bar">
+                <input id="q" class="q autocomplete" type="text" autocorrect="off" autocomplete="off">
+                <span class="screen-reader-text">Search by Voice</span>
+                <button id="speech" class="speech" type="button" style="">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="svgMic" viewBox="0 0 28 40" role="presentation" focusable="false">
+                        <path stroke="#0272B6" class="micIcon" stroke-width="0" fill="#4285F4" d="M8 6 A6 6,0,1,1,20 6 L 20 21 A6 6,0,1,1, 8 21 Z"/>
+                        <path stroke="#0272B6" class="micLine" stroke-width="4" fill="none" d="M2,20 A 12 12,0,0,0,5 28"/>
+                        <path stroke="#0272B6"  class="micLine" stroke-width="4" fill="none" d="M5,28 A 12 12,0,0,0,26 20"/>
+                        <line stroke="#0272B6" class="micLine" stroke-width="4" x1="14" y1="34" x2="14" y2="40"/>
+                    </svg>
+                </button>
+                <span>
+                  <!-- <span class="screen-reader-text">Search by Voice</span>
+                  <button id="speech" class="speech" type="button" style="">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 40" role="presentation" focusable="false">
+                					<path stroke="#0272B6" class="micIcon" stroke-width="0" fill="#4285F4" d="M8 6 A6 6,0,1,1,20 6 L 20 21 A6 6,0,1,1, 8 21 Z"/>
+                					<path stroke="#0272B6" class="micLine" stroke-width="4" fill="none" d="M2,20 A 12 12,0,0,0,5 28"/>
+                					<path stroke="#0272B6"  class="micLine" stroke-width="4" fill="none" d="M5,28 A 12 12,0,0,0,26 20"/>
+                					<line stroke="#0272B6" class="micLine" stroke-width="4" x1="14" y1="34" x2="14" y2="40"/>
+                				 </svg>
+                  </button>
+                       </span> -->
+                <button id="search-submit" class="search-submit" type="submit">
+                    <span class="screen-reader-text">Submit Search</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" role="presentation" focusable="false">
+                        <path d="M90,91 A 48 48,0,1,1,91 90 L134 134"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="query_menu_outer" data-module-container="autocomplete"></div>
+            <ul class="tabs main" data-module="search category tabs">
+                <li class="tabs_item tabs_web"><a class="tabs_switch active" href="web">Web</a></li>
+        <!--<li class="tabs_item tabs_xfinitytv"><a class="tabs_switch" href="xfinitytv">TV &amp; Movies</a></li>-->
+                <li class="tabs_item tabs_support"><a class="tabs_switch" href="support">Support</a></li>
+                <li class="tabs_item tabs_images"><a class="tabs_switch" href="images">Images</a></li>
+            </ul>
+        </form>
+        <div class="main hidden loader-wrapper">
+            <div class="loader-dots">
+                <div class="loader loader-circle-1"></div>
+                <div class="loader loader-circle-2"></div>
+                <div class="loader loader-circle-3"></div>
+            </div>
+        </div>
+        <div class="main results-container clearfix">
+            <section id="web-results" data-module-container="web" class="only-web blinking-effect"></section>
+            <section id="xtv-results" data-module-container="xfinitytv" class="only-xfinitytv"></section>
+            <section id="support-results" data-module-container="support" class="only-support"></section>
+            <aside id="sidebar-wrapper">
+                <div data-module-container="best_bets"></div>
+                <div id="promotions">
+                    <div class="hidden">
+                        {{xml_data}}
+                     </div>
+                    <div class="fluid-width" data-module="promotions">
+                        <div class="promo-lrm">
+                            <div class="thumbnail">
+                                <img id="prom_img_url" src="#" />
+                            </div>
+                            <div class="promo">
+                                <a id="promo_title" class="promo-url" href="#"></a>
+                                <div class="desc" id="prom_desc"></div>
+                                <div id="prom_title_url" class="displayurl" src="#"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sponsor-right-rail-ads" class="only-web blinking-effect"></div>
+                <div class="constant-width" data-module="related search">
+                    <div class="rel-s only-web blinking-effect" data-module-container="ask"></div>
+                </div>
+            </aside>
+        </div>
+        <form id="search_form-secondary" class="search-form hidden">
+            <div class="search-box main">
+                <input id="q-secondary" class="q autocomplete" type="text" autocorrect="off" autocomplete="off" maxlength="256">
+                <button id="search-submit-secondary" class="search-submit" type="submit">
+                    <span class="screen-reader-text">Submit Search</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" role="presentation" focusable="false">
+                        <path d="M90,91 A 48 48,0,1,1,91 90 L134 134"/>
+                    </svg>
+                </button>
+                <span class="google-label enhancedgoogle only-web">
+                </span>
+            </div>
+        </form>
+        <footer>
+            <ul class="footer-nav">
+                <li>
+                    &copy; {{currentYear}} Comcast Interactive Media
+                </li>
+                <li><a href="http://my.xfinity.com/privacy">Privacy Statement</a></li>
+                <li><a href="http://my.xfinity.com/terms/use/">Acceptable Use Policy</a></li>
+                <li><a href="http://my.xfinity.com/terms/">Terms of Service</a></li>
+                <li><a href="http://my.xfinity.com/advertisewithus/">Advertise With Us</a></li>
+                <li><a target="new" href="https://www.surveymonkey.com/s.aspx?sm=o0Me7dL5R5Sow6%2fi3Wo0gg%3d%3d">Feedback</a>
+                </li>
+            </ul>
+        </footer>
+        <script type="text/javascript">
+            //call page_load event
+            //if (typeof _satellite !== "undefined") {
+            //    _satellite.pageBottom();
+            //}
+            $(".google-label.enhancedgoogle").html(SERP.templates.google_logo());
+            $("body").on("click", "a", DTM.clickEvent);
+        </script>
+    </body>
+</html>
+<!-- build time/date: {{buildTime}} -->
